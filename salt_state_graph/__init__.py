@@ -116,13 +116,15 @@ class Graph(object):
 
                 for edge_type, ruleset in list(rules.items()):
                     for relname in find_edges(states, edge_type):
+                        if 'style' not in ruleset or ruleset['style'] is None:
+                            ruleset['style'] = ''
                         if 'reverse' in ruleset and ruleset['reverse']:
                             self.graph.add_edge(pydot.Edge(
-                                node_name, relname, color=ruleset['color']))
+                                node_name, relname, style=ruleset['style'], color=ruleset['color']))
                         else:
                             self.graph.add_edge(pydot.Edge(
-                                relname, node_name, color=ruleset['color']))
-
+                                relname, node_name, style=ruleset['style'], color=ruleset['color']))
+                            
     def render(self, fmt):
         if fmt == 'dot':
             return self.graph.to_string()
