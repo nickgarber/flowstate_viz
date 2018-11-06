@@ -70,12 +70,26 @@ class Graph(object):
         state_obj = json.load(input)
         self.graph = pydot.Dot("states", graph_type='digraph')
 
+        
         rules = {
             'require': {'color': 'blue'},
             'require_in': {'color': 'blue', 'reverse': True},
+            'require_any': {'color': 'blue', 'style': 'dashed'},
             'watch': {'color': 'red'},
             'watch_in': {'color': 'red', 'reverse': True},
+            'watch_any': {'color': 'red'},
+            'prereq': {'color': 'purple'},
+            'prereq_in': {'color': 'purple', 'reverse': True},
+            'use': {'color': 'orange'},
+            'use_in': {'color': 'orange', 'reverse': True},
+            'onchanges': {'color': 'green'},
+            'onchanges_in': {'color': 'green', 'reverse': True},
+            'onchanges_any': {'color': 'green'},
+            'onfail': {'color': 'yellow'},
+            'onfail_in': {'color': 'yellow', 'reverse': True},
+            'onfail_any': {'color': 'yellow'},
         }
+
 
         if len(state_obj.keys()) > 1:
             raise Exception(
