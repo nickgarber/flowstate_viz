@@ -1,14 +1,9 @@
 import os
-import pip.req
 import uuid
 import setuptools
 
 
 VERSION = '0.0.1'
-
-#reqs = pip.req.parse_requirements(
-#        os.path.join(os.path.dirname(__file__),
-#            "requirements.txt"), session=uuid.uuid1())
 
 test_requirements = ['pytest==2.7.2', 'pytest-cov==2.0.0', 'flake8']
 
