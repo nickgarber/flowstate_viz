@@ -1,3 +1,5 @@
+:warning: **This repo is unmaintained**: For those interested, related work continues as the [FlowState](https://github.com/genesis-matrix/flowstate) project. 
+
 # salt-state-graph
 
 This is a tool for visualising the runtime dependency graph of a
